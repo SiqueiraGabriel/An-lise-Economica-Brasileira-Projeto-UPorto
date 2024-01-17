@@ -1,0 +1,188 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <h1 class="jumbotron-header">NCM - {{ ncm.info.codigoNcm }} </h1>
+    <p></p>
+</div>
+
+
+
+<div class="container mt-5" onload="start()">
+    <ul class="m-0 nav nav-fill nav-justified nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation"> <button class="active nav-link" id="home-tab" data-bs-toggle="tab"
+                data-bs-target="#impo" type="button" role="tab" aria-controls="home" aria-selected="true"> <i
+                    class="fas fa-home"></i> Importação </button> </li>
+        <li class="nav-item" role="presentation"> <button class="nav-link" id="profile-tab" data-bs-toggle="tab"
+                data-bs-target="#expo" type="button" role="tab" aria-controls="profile" aria-selected="false">
+                Exportação </button> </li>
+        <li class="nav-item" role="presentation"> <button class="nav-link" id="profile-tab" data-bs-toggle="tab"
+                data-bs-target="#detalhe" type="button" role="tab" aria-controls="profile" aria-selected="false">
+                Detalhes </button> </li>
+    </ul>
+    <div class="border-grey bg-white p-3 tab-content">
+        <div class="tab-pane active" id="impo" role="tabpanel" aria-labelledby="impo-tab">
+            <div class="table-content">
+                <h3 class="table-title">Principais Estados</h3>
+                <table class="table table-condensed">
+                    <tr class="table-header">
+                        <th>Estado</th>
+                        <th>Qtd. Movimentações</th>
+                        <th>Total Valor Fob (USD)</th>
+                        <th>Média Valor Fob (USD)</th>
+                        <th>Qtd. Forma de Transporte </th>
+                    </tr>
+                    {% for e in ncm.estadoImportacao %}
+                    <tr>
+                        <td><a class="table-link" href="../../estados/{{ e.eId }}">{{ e.eNome }}</a></td>
+                        <td>{{ e.qtdMovimentacao }}</td>
+                        <td>{{ e.totalFob}}</td>
+                        <td>{{ e.mediaFob }}</td>
+                        <td>{{ e.qtdFormaTransporte }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+
+            <div class="table-content">
+                <h3 class="table-title">Principais Países</h3>
+                <table class="table table-condensed">
+                    <tr class="table-header">
+                        <th>Sigla</th>
+                        <th>Pais</th>
+                        <th>Qtd. Movimentações</th>
+                        <th>Valor Total Fob (USD)</th>
+                        <th>Média Fob (USD)</th>
+                    </tr>
+                    {% for p in ncm.paisImportacao %}
+                    <tr>
+                        <td><a href="../../paises/{{ p.pId}}">{{ p.pSigla }}</a></td>
+                        <td>{{ p.pNome }}</td>
+                        <td>{{ p.qtdMovimentacao }}</td>
+                        <td>{{ p.totalFob }}</td>
+                        <td>{{ p.mediaFob }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+
+            <div class="table-content">
+                <h3 class="table-title">Principais Formas de Transporte</h3>
+                <table class="table table-condensed">
+                    <tr class="table-header">
+                        <th>Nome</th>
+                        <th>Qtd. Movimentações</th>
+                        <th>Valor Total Fob (USD)</th>
+                    </tr>
+
+                    {% for ativ in ncm.transporteImportacao %}
+                    <tr>
+                        <td>{{ ativ.formaTransporte }}</td>
+                        <td>{{ ativ.qtdMovimentacao }}</td>
+                        <td>{{ ativ.totalFob }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+
+        </div>
+        <div class="tab-pane" id="expo" role="tabpanel" aria-labelledby="expo-tab">
+            <div class="table-content">
+                <h3 class="table-title">Principais Estados</h3>
+
+                <table class="table table-condensed">
+                    <tr class="table table-header">
+                        <th>Estado</th>
+                        <th>Qtd. Movimentações</th>
+                        <th>Total Valor Fob (USD)</th>
+                        <th>Média Valor Fob (USD)</th>
+                        <th>Qtd. Forma de Transporte </th>
+                    </tr>
+                    {% for e in ncm.estadoExportacao %}
+                    <tr>
+                        <td><a class="table-link" href="../../estados/{{ e.eId }}">{{ e.eNome }}</a></td>
+                        <td>{{ e.qtdMovimentacao }}</td>
+                        <td>{{ e.totalFob}}</td>
+                        <td>{{ e.mediaFob }}</td>
+                        <td>{{ e.qtdFormaTransporte }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+
+            <div class="table-content">
+                <h3 class="table-title">Principais Países</h3>
+                <table class="table table-condensed">
+                    <tr class="table-header">
+                        <th>Sigla</th>
+                        <th>Pais</th>
+                        <th>Qtd. Movimentações</th>
+                        <th>Valor Total Fob (USD)</th>
+                        <th>Média Fob (USD)</th>
+                    </tr>
+                    {% for p in ncm.paisExportacao %}
+                    <tr>
+                        <td><a href="../../paises/{{ p.pId}}">{{ p.pSigla }}</a></td>
+                        <td>{{ p.pNome }}</td>
+                        <td>{{ p.qtdMovimentacao }}</td>
+                        <td>{{ p.totalFob }}</td>
+                        <td>{{ p.mediaFob }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+
+            <div class="table-content">
+                <h3 class="table-title">Principais Formas de Transporte</h3>
+                <table class="table table-condensed">
+                    <tr class="table-header">
+                        <th>Nome</th>
+                        <th>Qtd. Movimentações</th>
+                        <th>Valor Total Fob (USD)</th>
+                    </tr>
+
+                    {% for ativ in ncm.transporteExportacao %}
+                    <tr>
+                        <td>{{ ativ.formaTransporte }}</td>
+                        <td>{{ ativ.qtdMovimentacao }}</td>
+                        <td>{{ ativ.totalFob }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+
+           
+
+
+        </div>
+        <div class="tab-pane" id="detalhe" role="tabpanel" aria-labelledby="detalhe-tab">
+
+            <div class="table-content">
+                <h3 class="table-title"> Propriedades </h3>
+                <table class="table-condensed table">
+                    <tr>
+                        <td class="table-header">NCM</td>
+                        <td>{{ ncm.info.codigoNCM }}</td>
+                    </tr>
+                    <tr>
+                        <td class="table-header">Descrição NCM</td>
+                        <td>{{ ncm.info.descricaoNcm }}</td>
+                    </tr>
+                    <tr>
+                        <td class="table-header">ISIC</td>
+                        <td>{{ ncm.info.codigoIsic }}</td>
+                    </tr>
+                    <tr>
+                        <td class="table-header">Descrição ISIC</td>
+                        <td>{{ ncm.info.descricaoIsic }}</td>
+                    </tr>
+                </table>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

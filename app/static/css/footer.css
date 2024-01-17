@@ -1,0 +1,70 @@
+.footer{
+    background-color: #19191a;
+    padding: 5px;
+    color: #f8f8f8;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    position: relative;
+    
+}
+
+.footer h1{
+    font-size: 20px;
+    text-transform: uppercase;
+    margin: 30px;
+    color: white;
+    text-align: left;
+}
+
+.footer .link{
+    color: #ffff;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.footer .link:hover{
+    color: #0778E7;
+}
+
+.footer ul{
+    list-style: none;
+}
+
+.footer li a{
+    margin: 1%;
+    size: 8px;
+}
+
+
+.footer h2{
+    font-size: 16px;
+    margin: 10px;
+    color: #ddd;
+    font-weight: bolder;
+}
+
+.footer small{
+    color: #AEB5BF;
+    font-size: 14px;
+}
+
+.footer .redesSociais{
+    display: flex;
+    justify-content: center;
+}
+
+
+.footer .redesSociais a{
+    display: inline-block;
+    margin-left: 20px;
+    width: 70px;
+    height: 70px;
+    text-align: center;
+    line-height: 70px;
+}
+
+footer{
+    text-align: left;
+    border-top: solid 1px white;
+    margin: 10px;
+    padding-top: 5px;
+}

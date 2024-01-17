@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="table-content">
+    <h1 class="table-title">Lista de Regiões</h1>
+    <table class="table table-condensed">
+        <tr class="table-header">
+            <th>Região</th>
+            <th>Qtd. de Estados</th>
+        </tr>
+        {% for r in regiao %}
+            <tr>
+                <td><a class="table-link" href="../../regiao/{{ r.regiao }}">{{ r.regiao }}</a></td>
+                <td>{{ r.qtdEstado }}</td>
+            </tr>
+
+        {% endfor %}
+        
+    </table>
+</div>
+
+
+
+
+{% endblock content %}

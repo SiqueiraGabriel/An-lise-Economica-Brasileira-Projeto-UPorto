@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <ul class="m-0 nav nav-fill nav-justified nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation"> <button class="active nav-link" id="home-tab" data-bs-toggle="tab"
+                data-bs-target="#grupoA" type="button" role="tab" aria-controls="home" aria-selected="true"> <i
+                    class="fas fa-home"></i> A - Agropecuária </button> </li>
+        <li class="nav-item" role="presentation"> <button class="nav-link" id="profile-tab" data-bs-toggle="tab"
+                data-bs-target="#grupoB" type="button" role="tab" aria-controls="profile" aria-selected="false"> <i
+                    class="fas fa-user-astronaut"></i> B - Indústria Extrativa </button> </li>
+        <li class="nav-item" role="presentation"> <button class="nav-link" id="messages-tab" data-bs-toggle="tab"
+                data-bs-target="#grupoC" type="button" role="tab" aria-controls="messages" aria-selected="false"> <i
+                    class="far fa-envelope-open"></i> C - Indústria de Transformação </button> </li>
+        <li class="nav-item" role="presentation"> <button class="nav-link" id="settings-tab" data-bs-toggle="tab"
+                data-bs-target="#grupoD" type="button" role="tab" aria-controls="settings" aria-selected="false"> <i
+                    class="fas fa-sliders-h"></i> D - Outros Produtos </button> </li>
+    </ul>
+    <div class="border-grey bg-white p-3 tab-content">
+        <div class="tab-pane active" id="grupoA" role="tabpanel" aria-labelledby="home-tab">
+            <div class="table-content">
+                <table class="table table-condensed">
+                    <tr class="table-header">
+                        <th>NCM</th>
+                        <th>Descrição</th>                        
+                    </tr>
+                    {% for ncm in ncm.grupoA %}
+                    <tr>
+                        <td><a  class="table-link" href="../../ncm/{{ ncm.codigoNCM }}/">{{ ncm.codigoNCM }}</a></td>
+                        <td>{{ ncm.descricaoNCM }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+        <div class="tab-pane" id="grupoB" role="tabpanel" aria-labelledby="profile-tab">
+            <div class="table-content">
+                <table class="table table-condensed">
+                    <tr class="table-header">
+                        <th>NCM</th>
+                        <th>Descrição</th>                        
+                    </tr>
+                    {% for ncm in ncm.grupoB %}
+                    <tr>
+                        <td><a class="table-link" href="../../ncm/{{ ncm.codigoNCM }}/">{{ ncm.codigoNCM }}</a></td>
+                        <td>{{ ncm.descricaoNCM }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+        <div class="tab-pane" id="grupoC" role="tabpanel" aria-labelledby="messages-tab">
+            <div class="table-content">
+                <table class="table table-condensed">
+                    <tr class="table-header">
+                        <th>NCM</th>
+                        <th>Descrição</th>                        
+                    </tr>
+                    {% for ncm in ncm.grupoC %}
+                    <tr>
+                        <td><a class="table-link" href="../../ncm/{{ ncm.codigoNCM }}/">{{ ncm.codigoNCM }}</a></td>
+                        <td>{{ ncm.descricaoNCM }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+        <div class="tab-pane" id="grupoD" role="tabpanel" aria-labelledby="settings-tab">
+            <div class="table-content">
+                <table class="table table-condensed">
+                    <tr class="table-header">
+                        <th>NCM</th>
+                        <th>Descrição</th>                        
+                    </tr>
+                    {% for ncm in ncm.grupoD %}
+                    <tr>
+                        <td><a class="table-link" href="../../ncm/{{ ncm.codigoNCM }}/">{{ ncm.codigoNCM }}</a></td>
+                        <td>{{ ncm.descricaoNCM }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock content %}

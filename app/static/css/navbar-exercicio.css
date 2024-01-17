@@ -1,0 +1,25 @@
+.lateral-menu{
+    background-color: #45454779;
+    margin: 5% 2%;
+    border-radius: 0% 2% 2% 0%;
+}
+
+.lateral-menu ul{
+    margin: 0% 2%;
+    width: 96%;
+}
+
+.lateral-menu li{
+    width: 96%;
+    margin: 2%;
+    
+}
+.lateral-menu a{
+    text-align: center;
+}
+
+.lateral-menu a:hover{
+    background-color: #5e5e6179;
+    width: 100%;
+    border-radius: 5%;
+}

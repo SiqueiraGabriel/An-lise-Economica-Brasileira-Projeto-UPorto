@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="table-content">
+    <h2 class="table-title">Lista de Países</h2>
+
+    <table class="table table-condensed">
+        <tr class="table-header">
+            <th>Sigla</th>
+            <th>País</th>
+        </tr>
+        {% for pais in paises %}
+        <tr>
+            <td><a class="table-link" href="../../paises/{{ pais.paisId }}">{{ pais.sigla }}</a></td>
+            <td>{{ pais.nome }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+
+
+{% endblock content %}

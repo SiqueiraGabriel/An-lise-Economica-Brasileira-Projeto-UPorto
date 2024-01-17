@@ -1,0 +1,154 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <h1 class="jumbotron-header">Resultado da Busca</h1>
+</div>
+
+
+<div class="table-content">
+    <h1 class="table-title">Dados Utilizados</h1>
+    <table class="table table-condensed">
+        <tr class="table-header">
+            <th>Campo</th>
+            <th>Dados</th>
+        </tr>
+        <tr>
+            <td>Tipo</td>
+            <td>{{ info.tipo }}</td>
+        </tr>
+        
+        <tr>
+            <td>País</td>
+            <td>{{ info.pais.nome }} {% if info.pais.nome|length == 0 %}Todos {% endif %}</td>
+        </tr>
+        <tr>
+            <td>Estado</td>
+            <td>{{ info.estado.nome }} {% if info.estado.nome|length == 0 %}Todos {% endif %}</td>
+        </tr>
+        <tr>
+            <td>Mês</td>
+            <td>{{ info.mes }}</td>
+        </tr>
+        <tr>
+            <td>Tipo de Atividade</td>
+            <td>{{ info.tipoAtividade.descricao }} {% if info.tipoAtividade.descricao|length == 0 %} Todos {% endif %}</td>
+        </tr>
+    </table>
+    <a href="/" class="btn btn-dark">Voltar</a>
+
+    
+</div>
+
+<div class="table-content">
+    <h3 class="table-title">Resumo das Transações</h3>
+    <table class="table table-condensed">
+        <tr class="table-header">
+            <th>Qtd. Movimentações</th>
+            <th>Valor Total Fob (USD)</th>
+            <th>Média Fob (USD)</th>
+        </tr>
+        {% for p in dados.resumo %}
+        <tr>
+            <td>{{ p.qtdMovimentacao }}</td>
+            <td>{{ p.totalFob }}</td>
+            <td>{{ p.mediaFob }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+{% if dados.topPais|length > 0 %}
+    <div class="table-content">
+        <h3 class="table-title">Principais Países</h3>
+        <table class="table table-condensed">
+            <tr class="table-header">
+                <th>Sigla</th>
+                <th>Pais</th>
+                <th>Qtd. Movimentações</th>
+                <th>Valor Total Fob (USD)</th>
+                <th>Média Fob (USD)</th>
+            </tr>
+            {% for p in dados.topPais %}
+            <tr>
+                <td><a class="table-link" href="../../paises/{{ p.pId}}">{{ p.pSigla }}</a></td>
+                <td>{{ p.pNome }}</td>
+                <td>{{ p.qtdMovimentacao }}</td>
+                <td>{{ p.totalFob }}</td>
+                <td>{{ p.mediaFob }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+{% endif %}
+
+
+{% if dados.topEstado|length > 0 %}
+    <div class="table-content">
+        <h3 class="table-title">Principais Estados</h3>
+        <table class="table table-condensed">
+            <tr class="table-header">
+                <th>Estado</th>
+                <th>Qtd. Movimentações</th>
+                <th>Total Valor Fob (USD)</th>
+                <th>Média Valor Fob (USD)</th>
+            </tr>
+            {% for b in dados.topEstado %}
+            <tr>
+                <td><a class="table-link" href="../../estados/{{ b.eId }}">{{ b.eNome }}</a></td>
+                <td>{{ b.qtdMovimentacao }}</td>
+                <td>{{ b.totalFob}}</td>
+                <td>{{ b.mediaFob }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endif %}
+
+{% if dados.topMes|length > 0 %}
+    <div class="table-content">
+        <h3 class="table-title">Principais Meses</h3>
+        <table class="table table-condensed">
+            <tr class="table-header">
+                <th>Mês</th>
+                <th>Qtd. Movimentações</th>
+                <th>Total Valor Fob (USD)</th>
+                <th>Média Valor Fob (USD)</th>
+            </tr>
+            {% for b in dados.topMes %}
+            <tr>
+                <td><a class="table-link" href="../../movimentacao/{{ b.mes }}">{{ mes[b.mes - 1]}}</a></td>
+                <td>{{ b.qtdMovimentacao }}</td>
+                <td>{{ b.totalFob}}</td>
+                <td>{{ b.mediaFob }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endif %}
+
+{% if dados.topTipoAtividade|length > 0 %}
+<div class="table-content">
+    <h3 class="table-title">Principais Atividades</h3>
+    <table class="table table-condensed">
+        <tr class="table-header">
+            <th>Atividade</th>
+            <th>Qtd. Movimentações</th>
+            <th>Total Valor Fob (USD)</th>
+            <th>Média Valor Fob (USD)</th>
+        </tr>
+        {% for b in dados.topTipoAtividade %}
+        <tr>
+            <td><a class="table-link" href="../../tipo_atividade/{{ b.tipoAtividadeId }}">{{ b.tDescricao }}</a></td>
+            <td>{{ b.qtdMovimentacao }}</td>
+            <td>{{ b.totalFob}}</td>
+            <td>{{ b.mediaFob }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endif %}
+
+
+{% endblock content %}

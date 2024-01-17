@@ -1,0 +1,162 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- 
+  Conteúdo apenas simples para começar. 
+ 
+  Veja aplicação fazendo interface à MovieStream para exemplos concretos.
+-->
+
+<div class="jumbotron">
+  <h1 class="jumbotron-header">Exportações e Importações <br> Brasileira</h1>
+</div>
+
+<!-- Tabela com informações estatísticas do Projeto -->
+<div class="table-content">
+  <h1 class="table-title">Estatísticas dos Dados</h1>
+  <table class="table table-condensed">
+    <tr class="table-header">
+      <th>Tabela</th>
+      <th>Qtd. Entradas</th>
+    </tr>
+    <tr>
+      <td>AtividadeEconomica</td>
+      <td>{{ info.qtdAtividadeEconomica.qtd }}</td>
+    </tr>
+    <tr>
+      <td>BlocoEconomico</td>
+      <td>{{ info.qtdBlocoEconomico.qtd }}</td>
+    </tr>
+    <tr>
+      <td>Estado</td>
+      <td>{{ info.qtdEstado.qtd }}</td>
+    </tr>
+    <tr>
+      <td>Movimentacao</td>
+      <td>{{ info.qtdMovimentacao.qtd }}</td>
+    </tr>
+    <tr>
+      <td>Pais</td>
+      <td>{{ info.qtdPais.qtd }}</td>
+    </tr>
+    <tr>
+      <td>PaisBlocoEconomico</td>
+      <td>{{ info.qtdPaisBlocoEconomico.qtd }}</td>
+    </tr>
+    <tr>
+      <td>TipoAtividade</td>
+      <td>{{ info.qtdTipoAtividade.qtd }}</td>
+    </tr>
+  </table>
+
+</div>
+
+<!-- -->
+<div class="table-content">
+  <h1 class="table-title">Busca Avançada</h1>
+
+  <form>
+      <label for="ftipo" class="form-label p-0">Tipo</label>
+      <select id="ftipo" class="form-control">
+        <option value="import">Importação</option>
+        <option value="export">Exportação</option>
+      </select>
+
+      <label for="fpais" class="form-label">País</label>
+      <select id="fpais" class="form-control">
+        <option value="todos">Todos</option>
+        {% for p in select.pais %}
+          <option value="{{ p.paisId }}">{{ p.nome }}</option>
+        {% endfor %}
+      </select>
+
+      <label for="festado" class="form-label p-0">Estado</label>
+      <select id="festado" class="form-control">
+        <option value="todos">Todos</option>
+        {% for e in select.estado %}
+          <option value="{{ e.estadoId }}">{{ e.nome }}</option>
+        {% endfor %}
+      </select>
+
+      <label for="fmes" class="form-label p-0">Mês</label>
+      <select id="fmes" class="form-control">
+        <option value="todos">Todos</option>
+        {% for m in select.mes %}
+          <option value="{{ loop.index }}">{{ m }}</option>
+        {% endfor %}
+      </select>
+
+      <label for="ftipoatividade" class="form-label p-0">Tipo de Atividade</label>
+      <select id="ftipoatividade" class="form-control">
+        <option value="todos">Todos</option>
+        {% for a in select.tipoAtividade %}
+          <option value="{{ a.tipoAtividadeId }}">{{ a.descricao }}</option>
+        {% endfor %}
+      </select>      
+    <button type="button" onclick="advancedSearch()" class="btn btn-dark">Buscar</button>
+  </form>
+</div>
+
+
+
+
+<div class="table-content">
+  <h1 class="table-title">Países</h1>
+
+  <form>
+      <label for="nomePais" class="form-label">Nome</label>
+      <input type="text" class="form-control" id="nomePais">
+      <label for="siglaPais" class="form-label p-0">Sigla</label>
+      <input type="text" class="form-control" id="siglaPais">
+    <button type="button" class="btn btn-dark" onclick="searchPais()">Buscar</button>
+  </form>
+
+  <a href="/paises/" class="btn btn-dark">Mostrar Todos</a>
+</div>
+
+<div class="table-content">
+  <h1 class="table-title">Estados</h1>
+
+  <form>
+      <label for="nomeEstado" class="form-label">Nome</label>
+      <input type="text" class="form-control" id="nomeEstado">
+      <label for="siglaEstado" class="form-label p-0">Sigla</label>
+      <input type="text" class="form-control" id="siglaEstado">
+    <button type="button" class="btn btn-dark" onclick="searchEstado()">Buscar</button>
+  </form>
+
+  <a href="/estados/" class="btn btn-dark">Mostrar Todos</a>
+</div>
+
+<div class="table-content">
+  <h1 class="table-title">NCM</h1>
+
+  <form>
+      <label for="codigoNCM" class="form-label">Código</label>
+      <input type="text" class="form-control" id="codigoNCM">
+      <label for="descricaoNCM" class="form-label p-0">Descrição</label>
+      <input type="text" class="form-control" id="descricaoNCM">
+    <button type="button" class="btn btn-dark" onclick="searchNcm()">Buscar</button>
+  </form>
+
+  <a href="/ncm/" class="btn btn-dark">Mostrar Todos</a>
+</div>
+
+
+<div class="table-content">
+
+  <h2 class="table-title">Outras Páginas</h2>
+  <div class="button-group">
+    <a type="/bloco_economico/"  class="btn btn-dark m-1">Listar Blocos Economicos</a>
+    <a href="/movimentacao/" class="btn btn-dark m-1">Listar Movimentacões</a>
+    <a href="/tipoAtividade/" class="btn btn-dark m-1">Listar Tipo Atividade Econômica</a>
+  </div>
+      
+  
+</div>
+
+
+<!-- Adicionar o JS da página-->
+<script src="../static/js/index.js"></script>
+{% endblock %}

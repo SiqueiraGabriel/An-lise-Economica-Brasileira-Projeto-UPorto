@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="table-content">
+    <h1 class="table-title">Lista de Estados</h1>
+    <table class="table table-condensed">
+        <tr class="table-header">
+            <th>Nome</th>
+            <th>Sigla</th>
+            <th>Região</th>
+        </tr>
+        {% for estado in estados %}
+        <tr>
+            <td><a class="table-link" href="{{ estado.estadoId }}/">{{ estado.nome}}</a></td>
+            <td>{{ estado.sigla}}</td>
+            <td><a class="table-link"href="../regiao/{{ estado.regiao }}">{{ estado.regiao }}</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    
+</div>
+
+
+{% endblock content %}

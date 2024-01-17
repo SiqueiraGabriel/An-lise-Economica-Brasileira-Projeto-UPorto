@@ -1,0 +1,141 @@
+.jumbotron{
+    /*background: url("../image/jumbotron.jpg");    background-repeat: no-repeat;*/
+    background-color: #202020;
+    background-size: cover;
+    height: 200px;
+    width: 100%;
+    color: #f7f7f7;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    border-radius: 0%;
+    margin: 1%;
+    border-radius: 2%;
+    padding-left: 0px;
+    margin-right: 0%;
+    margin-left: 0%;
+    display: flex;
+    justify-content: center;
+}
+
+
+
+.jumbotron-header{
+    margin-top: 2%;
+    font-weight: bolder;
+    font-size: 48px;
+    text-shadow: 3px 2px 5px #000000a4;
+}
+
+.jumbotron-sub-header{
+    font-size: 32px;
+    font-style: italic;
+    text-shadow: 1.5px 1.5px 2px #000000a4;
+}
+
+.jumbotron-btn{
+    background-color: #393939;
+    border: 1px solid #000;
+    border-radius: 7%;
+    color: #f7f7f7;
+    width: 150px;
+    letter-spacing: 1px;
+    transition: all 0.5s;
+}
+
+.btn-dark{
+    background-color: #393939;
+    border: 1px solid #000;
+    border-radius: 7%;
+    color: #f7f7f7;
+    width: 80%;
+    margin: 2% 10%;
+    letter-spacing: 1px;
+    transition: all 0.5s;
+}
+
+.btn-dark:hover{
+    background-color: #0778E7;
+    color: wheat;
+    box-shadow: 1px 1px 2px #f7f7f791;
+}
+
+.main{
+    background: url("../imagem/wallpaper-main.png");
+    background-size: cover;
+    padding: 0%;
+    margin: 0%;
+    width: 100%;
+}
+.main h2{
+    text-align: center;
+    color: #f8f8f8;
+    margin-top: 10%;
+    letter-spacing: 1px;
+}
+.main i{
+    color: white;
+}
+.main hr{
+    background-color: #f8f8f8;
+}
+
+.main .list-tecnology{
+    list-style: none;
+    text-align: left;
+    margin-top: 10%;
+}
+
+.main .list-tecnology li{
+    display: inline-block;
+    margin-right: 10%;
+}
+
+@media(max-width: 750px){
+    .jumbotron{
+        height: 200px;
+    }
+    .jumbotron-header{
+        font-size: 32px;
+    }
+    .jumbotron-sub-header{
+        font-size: 24px;
+    }
+    .main-img{
+        display: none;
+    }
+}
+
+.table-content{
+    padding: 0.5%;
+    background-color: #202020;
+    border-radius: 1%;
+    width: 100%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+
+.table-header{
+    background-color: #393939;
+    font-weight: bolder;
+}
+
+.table-title{
+    margin-top: 2%;
+    font-weight: bolder;
+    font-size: 30px;
+    text-shadow: 3px 2px 5px #000000a4;
+    text-align: center;
+}
+
+.table-link{
+    color: #ffff;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.button-group{
+    display: flex;
+    justify-content: center;
+    margin: 1%;
+}

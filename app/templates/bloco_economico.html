@@ -1,0 +1,178 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <h1 class="jumbotron-header">{{ bloco.info.bNome }}</h1>
+</div>
+
+
+
+<div class="container mt-5" onload="start()">
+    <ul class="m-0 nav nav-fill nav-justified nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation"> <button class="active nav-link" id="home-tab" data-bs-toggle="tab"
+                data-bs-target="#impo" type="button" role="tab" aria-controls="home" aria-selected="true"> <i
+                    class="fas fa-home"></i> Importação </button> </li>
+        <li class="nav-item" role="presentation"> <button class="nav-link" id="profile-tab" data-bs-toggle="tab"
+                data-bs-target="#expo" type="button" role="tab" aria-controls="profile" aria-selected="false">
+                Exportação </button> </li>
+        <li class="nav-item" role="presentation"> <button class="nav-link" id="profile-tab" data-bs-toggle="tab"
+                data-bs-target="#detalhe" type="button" role="tab" aria-controls="profile" aria-selected="false">
+                Detalhes </button> </li>
+    </ul>
+    <div class="border-grey bg-white p-3 tab-content">
+        <div class="tab-pane active" id="impo" role="tabpanel" aria-labelledby="impo-tab">
+            <div class="table-content">
+                <h3 class="table-title">Principais Estados</h3>
+                <table class="table table-condensed">
+                    <tr class="table-header">
+                        <th>Estado</th>
+                        <th>Qtd. Movimentações</th>
+                        <th>Total Valor Fob (USD)</th>
+                        <th>Média Valor Fob (USD)</th>
+                    </tr>
+                    {% for b in bloco.estadoImportacao %}
+                    <tr>
+                        <td><a class="table-link" href="../../estados/{{ b.eId }}">{{ b.eNome }}</a></td>
+                        <td>{{ b.qtdMovimentacao }}</td>
+                        <td>{{ b.totalFob}}</td>
+                        <td>{{ b.mediaFob }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+
+            <div class="table-content">
+                <h3 class="table-title">Principais Países</h3>
+                <table class="table table-condensed">
+                    <tr class="table-header">
+                        <th>Estado</th>
+                        <th>Qtd. Movimentações</th>
+                        <th>Total Valor Fob (USD)</th>
+                        <th>Média Valor Fob (USD)</th>
+                    </tr>
+                    {% for a in bloco.paisImportacao %}
+                    <tr>
+                        <td><a class="table-link" href="../../paises/{{ a.pId }}">{{ a.pNome }}</a></td>
+                        <td>{{ a.qtdMovimentacao }}</td>
+                        <td>{{ a.totalFob}}</td>
+                        <td>{{ a.mediaFob }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+
+            <div class="table-content">
+                <h3 class="table-title">Principais NCM</h3>
+                <table class="table table-condensed">
+                    <tr class="table-header">
+                        <th>NCM</th>
+                        <th>Descrição</th>
+                        <th>Qtd. Movimentações</th>
+                        <th>Total Valor Fob (USD)</th>
+                        <th>Média Valor Fob (USD)</th>
+                    </tr>
+                    {% for a in bloco.ncmImportacao %}
+                    <tr>
+                        <td><a class="table-link" href="../../ncm/{{ a.atividadeEconomicaId }}">{{ a.atividadeEconomicaId }}</a></td>
+                        <td>{{ a.descricaoNcm }}</td>
+                        <td>{{ a.qtdMovimentacao }}</td>
+                        <td>{{ a.totalFob}}</td>
+                        <td>{{ a.mediaFob }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+          
+        </div>
+        <div class="tab-pane" id="expo" role="tabpanel" aria-labelledby="expo-tab">
+            <div class="table-content">
+                <h3 class="table-title">Principais Estados</h3>
+                <table class="table table-condensed">
+                    <tr class="table-header">
+                        <th>Estado</th>
+                        <th>Qtd. Movimentações</th>
+                        <th>Total Valor Fob (USD)</th>
+                        <th>Média Valor Fob (USD)</th>
+                    </tr>
+                    {% for a in bloco.estadoExportacao %}
+                    <tr>
+                        <td><a class="table-link" href="../../estados/{{ a.eId }}">{{ a.eNome }}</a></td>
+                        <td>{{ a.qtdMovimentacao }}</td>
+                        <td>{{ a.totalFob}}</td>
+                        <td>{{ a.mediaFob }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+
+            <div class="table-content">
+                <h3 class="table-title">Principais Países</h3>
+                <table class="table table-condensed">
+                    <tr class="table-header">
+                        <th>Estado</th>
+                        <th>Qtd. Movimentações</th>
+                        <th>Total Valor Fob (USD)</th>
+                        <th>Média Valor Fob (USD)</th>
+                    </tr>
+                    {% for a in bloco.paisExportacao %}
+                    <tr>
+                        <td><a class="table-link" href="../../paises/{{ a.pId }}">{{ a.pNome }}</a></td>
+                        <td>{{ a.qtdMovimentacao }}</td>
+                        <td>{{ a.totalFob}}</td>
+                        <td>{{ a.mediaFob }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+
+            <div class="table-content">
+                <h3 class="table-title">Principais NCM</h3>
+                <table class="table table-condensed">
+                    <tr class="table-header">
+                        <th>NCM</th>
+                        <th>Descricao</th>
+                        <th>Qtd. Movimentações</th>
+                        <th>Total Valor Fob (USD)</th>
+                        <th>Média Valor Fob (USD)</th>
+                    </tr>
+                    {% for a in bloco.ncmExportacao %}
+                    <tr>
+                        <td><a class="table-link" href="../../ncm/{{ a.atividadeEconomicaId }}">{{ a.atividadeEconomicaId }}</a></td>
+                        <td>{{ a.descricaoNCM }}</td>
+                        <td>{{ a.qtdMovimentacao }}</td>
+                        <td>{{ a.totalFob}}</td>
+                        <td>{{ a.mediaFob }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+
+
+        <div class="tab-pane" id="detalhe" role="tabpanel" aria-labelledby="detalhe-tab">
+            <div class="table-content">
+                <h1 class="table-title">Lista de Países</h1>
+                <table class="table table-condensed">
+                    <tr class="table-header">
+                        <th>Sigla</th>
+                        <th>Nome</th>
+                    </tr>
+                    {% for e in bloco.listaPais %}
+                        <tr>
+                            <td><a class="table-link" href="../../pais/{{ e.pId }}">{{ e.pSigla }}</a></td>
+                            <td>{{ e.pNome }}</td>
+                        </tr>
+                    {% endfor %}
+
+                </table>
+            </div>
+            
+            
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}
