@@ -1,18 +1,15 @@
-# Analysis of Brazilian Exports and Imports
-This project is a web application developed with the Flask library in Python, along with HTML and CSS, to analyze Brazilian exports and imports.
+# Análise das Exportações e Importações Brasileiras
+Este projeto é uma aplicação web desenvolvida com a biblioteca Flask do Python, juntamente com HTML e CSS, para analisar as exportações e importações brasileiras.
 
-## About the Project
-The application allows users to view, analyze, and understand data on Brazil’s exports and imports. The data is presented in an interactive and easy-to-understand manner, allowing users to perform deep analyses and make informed decisions.
+## Sobre o Projeto
+A aplicação permite aos usuários visualizar, analisar e entender os dados de exportações e importações do Brasil. Os dados são apresentados de forma interativa e fácil de entender, permitindo aos usuários fazer análises profundas e tomar decisões informadas.
 
-## Technologies Used
-- Python: The main programming language used to develop the business logic of the application.
-- Flask: A Python library for developing web applications. It was used to create the user interface and manage HTTP requests and responses.
-- HTML/CSS: Used to create and style the user interface.
+## Tecnologias Utilizadas
+- Python: A linguagem de programação principal usada para desenvolver a lógica de negócios da aplicação.
+- Flask: Uma biblioteca Python para desenvolver aplicações web. Foi usada para criar a interface do usuário e gerenciar as solicitações e respostas HTTP.
+- HTML/CSS: Usados para criar e estilizar a interface do usuário.
+## Diagrama de Classes
+O diagrama de classes foi criado para representar as classes de objetos dentro do sistema e suas interações. Ele fornece uma visão clara da estrutura do código e facilita a compreensão do fluxo de dados dentro da aplicação.
 
-## Class Diagrams
-The class diagrams were created to represent the classes of objects within the system and their interactions. It provides a clear view of the code structure and facilitates understanding of the data flow within the application.
-
-## Relational Model
-The relational model was used to design the database structure. It helps to understand the relations between different tables and how data is stored and accessed.
-
-We hope you find this project useful and look forward to your feedback and suggestions!
+## Modelo Relacional
+O modelo relacional foi usado para projetar a estrutura do banco de dados. Ele ajuda a entender as relações entre diferentes tabelas e como os dados são armazenados e acessados.
