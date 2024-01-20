@@ -8,8 +8,13 @@ A aplicação permite aos usuários visualizar, analisar e entender os dados de 
 - Python: A linguagem de programação principal usada para desenvolver a lógica de negócios da aplicação.
 - Flask: Uma biblioteca Python para desenvolver aplicações web. Foi usada para criar a interface do usuário e gerenciar as solicitações e respostas HTTP.
 - HTML/CSS: Usados para criar e estilizar a interface do usuário.
+  
 ## Diagrama de Classes
 O diagrama de classes foi criado para representar as classes de objetos dentro do sistema e suas interações. Ele fornece uma visão clara da estrutura do código e facilita a compreensão do fluxo de dados dentro da aplicação.
 
+![Diagrama de Classes](BD_DiagramaClasse-ProjetoBD.png)
 ## Modelo Relacional
 O modelo relacional foi usado para projetar a estrutura do banco de dados. Ele ajuda a entender as relações entre diferentes tabelas e como os dados são armazenados e acessados.
+
+
+![Modelo Relacional](BD_ModeloRelacional-Projeto.png)
